@@ -1,6 +1,6 @@
 import * as bodyParser from 'body-parser';
-import express from 'express';
-import { NextFunction, Request, RequestHandler, Response } from 'express';
+import * as express from 'express';
+import { application, NextFunction, Request, RequestHandler, Response } from 'express';
 import logger from './logger';
 import { Context } from './main';
 
@@ -12,7 +12,7 @@ const asyncMiddleware = (fn: RequestHandler) => {
 };
 
 export class App {
-  public app = express.application;
+  public app = application;
   public context: Context;
 
   constructor(context: Context) {
