@@ -28,8 +28,15 @@ export class App {
   }
 
   private routes() {
+    this.app.get('/api/posts', asyncMiddleware(this.getAllPosts.bind(this)));
     this.app.get('/api/posts/:id', asyncMiddleware(this.getPosts.bind(this)));
     this.app.post('/api/posts', asyncMiddleware(this.addPost.bind(this)));
+  }
+
+  private async getAllPosts(req: Request, res: Response) {
+    logger.debug('get-all-posts-handler');
+    const posts = await this.context.postStore.getAll();
+    res.json({ posts });
   }
 
   private async addPost(req: Request, res: Response) {

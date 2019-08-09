@@ -9,6 +9,7 @@ export type Post = {
 export type PostStore = {
     store: (post: Post) => Promise<boolean>,
     get: (id: string) => Promise<Post | null>,
+    getAll: () => Promise<Post[]>,
 };
 
 type MemDB = {
@@ -28,6 +29,10 @@ function memoryStore(): PostStore {
         async get(id) {
             logger.debug('get: db: \n', { id, db });
             return db[id] || null;
+        },
+        async getAll() {
+            logger.debug('get-all', { db });
+            return Object.keys(db).map((k) => db[k]);
         },
     };
 }

@@ -1,4 +1,5 @@
 import { App } from './app';
+import logger from './logger';
 import { connect, PostStore } from './posts/store';
 
 export type Context = {
@@ -11,9 +12,7 @@ function main() {
   };
 
   const { app } = new App(context);
-  app.listen(3000, () => {
-    console.log(`listening on port 3000`);
-  });
+  app.listen(3000, () => logger.info('server-started', { port: 3000 }));
 }
 
 main();
