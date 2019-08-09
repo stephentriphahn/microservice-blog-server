@@ -17,7 +17,7 @@ type MemDB = {
 
 function memoryStore(): PostStore {
     const db: MemDB = {
-        'abc': { id: 'abc', title: 'Hard coded', text: 'Lorum Ipsom some other stuff' },
+        abc: { id: 'abc', title: 'Hard coded', text: 'Lorum Ipsom some other stuff' },
     };
     return {
         async store(post) {
