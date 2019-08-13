@@ -12,7 +12,12 @@ function main() {
   };
 
   const { app } = new App(context);
-  app.listen(3000, () => logger.info('server-started', { port: 3000 }));
+  // main routes
+  app.use('/heartbeat', (req, res) => {
+    res.json({ status: 'ok' });
+  });
+
+  app.listen(8080, () => logger.info('server-started', { port: 8080 }));
 }
 
 main();
