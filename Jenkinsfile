@@ -7,7 +7,7 @@ pipeline {
             echo "getting project from git"
             // Get some code from a GitHub repository
             git 'https://github.com/stephentriphahn/microservice-blog-server.git'
-
+	    echo "Jenkinsfile test confirm"
             // Run Maven on a Unix agent.
             //sh "npm install"
             //sh "npm build"
