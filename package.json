@@ -17,7 +17,7 @@
     "@types/node": "^12.6.9",
     "@types/winston": "^2.4.4",
     "chai": "^4.2.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "mocha": "^6.2.0",
     "ts-lint": "^4.5.1",
     "ts-node": "^8.3.0",
